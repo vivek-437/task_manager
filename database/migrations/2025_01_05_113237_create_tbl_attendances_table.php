@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tbl_attendances', function (Blueprint $table) {
             $table->integer('id', 11)->autoIncrement();
-            $table->time('in_time');
-            $table->time('out_time');
+            $table->time('in_time')->nullable();
+            $table->time('out_time')->nullable();
             $table->string('duration');
             $table->integer('tbl_shift_id');
             $table->integer('tbl_user_id');

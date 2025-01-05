@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('priority', ['low', 'medium', 'high']);
             $table->enum('status', ['to-do', 'in-progress', 'completed']);
             $table->integer('tbl_project_id');
-            $table->timestamp('due_date');
+            $table->timestamp('due_date')->nullable();
             $table->integer('parent_task_id')->nullable();
             $table->timestamps();
         });

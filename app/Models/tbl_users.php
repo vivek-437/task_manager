@@ -42,7 +42,7 @@ class tbl_users extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-     /**
+    /**
      * Get the user details associated with this user.
      */
     public function userDetails()
@@ -56,5 +56,15 @@ class tbl_users extends Authenticatable
     public function assignedTasks()
     {
         return $this->hasMany(tbl_assign_tasks::class, 'tbl_user_id');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(
+            tbl_roles::class,
+            'tbl_role_users',
+            'tbl_user_id',
+            'tbl_role_id'
+        );
     }
 }

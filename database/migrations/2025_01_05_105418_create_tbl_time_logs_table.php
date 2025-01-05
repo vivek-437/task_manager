@@ -16,9 +16,9 @@ return new class extends Migration
             $table->integer('tbl_user_id');
             $table->integer('tbl_project_id');
             $table->integer('tbl_task_id');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
-            $table->timestamp('duration');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
+            $table->string('duration')->nullable();
             $table->integer('tbl_shift_id');
             $table->timestamps();   
         });

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('project_name');
             $table->text('description');
             $table->string('project_category');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('tbl_shifts', function (Blueprint $table) {
             $table->integer('id', 11)->autoIncrement();
             $table->enum('shift_type', ['morning', 'evening', 'night'])->nullable(); // Shift type (e.g., morning, evening, night)
-            $table->timestamp('start_time'); // Shift start time
-            $table->timestamp('end_time'); // Shift end time
+            $table->timestamp('start_time')->nullable(); // Shift start time
+            $table->timestamp('end_time')->nullable(); // Shift end time
             $table->string('location', 255)->nullable(); // Optional location of the shift
             $table->text('notes')->nullable(); // Optional notes about the shift
             $table->timestamps();
