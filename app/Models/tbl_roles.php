@@ -11,7 +11,7 @@ class tbl_roles extends Model
 
     protected $table = 'tbl_roles';
 
-    protected $fillable = ['role_name'];
+    protected $fillable = ['role_name','description'];
 
     public function permissions()
     {

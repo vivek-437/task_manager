@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,15 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware(['web', 'auth'])->group(function () {
 
-    Route::get('/project', function () {
-        return view('welcome');
-    })->name('h');
+    Route::get('/projects', function () {
+        return view('projects.project-list');
+    })->name('project');
 
-    
+    Route::controller(RoleController::class)->group(function(){
+        Route::get('/roles','index')->name('role');
+        Route::get('/role-create','create')->name('role.create');
+        Route::post('/role-store','store')->name('role.store');
+        Route::get('/role-edit/{id}','edit')->name('role.edit');
+        Route::post('role-update/{id}','update')->name('role.update');
+    });
 });

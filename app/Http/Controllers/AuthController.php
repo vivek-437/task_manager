@@ -50,7 +50,7 @@ class AuthController extends Controller
             session()->flash('success', 'Login successful.');
     
             // Redirect to the dashboard or desired route
-            return redirect()->route('h'); // Change 'dashboard' to your desired route
+            return redirect()->route('project'); // Change 'dashboard' to your desired route
         }
     
         // Authentication failed
