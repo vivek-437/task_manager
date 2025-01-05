@@ -41,4 +41,20 @@ class tbl_users extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     /**
+     * Get the user details associated with this user.
+     */
+    public function userDetails()
+    {
+        return $this->hasOne(tbl_user_details::class, 'tbl_user_id');
+    }
+
+    /**
+     * Get the assigned tasks for the user.
+     */
+    public function assignedTasks()
+    {
+        return $this->hasMany(tbl_assign_tasks::class, 'tbl_user_id');
+    }
 }
