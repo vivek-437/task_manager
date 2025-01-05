@@ -67,4 +67,19 @@ class tbl_users extends Authenticatable
             'tbl_role_id'
         );
     }
+
+
+    /**
+     * Hash password before saving
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($user) {
+            if ($user->isDirty('password')) {
+                $user->password = bcrypt($user->password);
+            }
+        });
+    }
 }

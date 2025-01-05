@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Shift list')
+@section('title', 'User list')
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -13,21 +13,21 @@
                     <div class="row mb-3">
                         <!-- Left Side: Table Title -->
                         <div class="col-md-6 d-flex align-items-center">
-                            <h4 class="card-title mb-0">shifts Table</h4>
+                            <h4 class="card-title mb-0">users Table</h4>
                         </div>
 
-                        <!-- Right Side: Search Bar, Add shift Button, and Refresh Button -->
+                        <!-- Right Side: Search Bar, Add user Button, and Refresh Button -->
                         <div class="col-md-6 d-flex justify-content-end align-items-center">
                             <!-- Search Bar -->
                             <div class="mr-3">
-                                <input type="text" id="search-bar" class="form-control" placeholder="Search shifts..." />
+                                <input type="text" id="search-bar" class="form-control" placeholder="Search users..." />
                             </div>
 
-                            <!-- Add shift Button with icon -->
+                            <!-- Add user Button with icon -->
                             <div class="mr-3">
-                                <a href="{{ route('shift.create') }}" class="btn btn-primary" id="add-shift-btn"
-                                    title="Add shift">
-                                    <i class="mdi mdi-plus"></i> Add shift
+                                <a href="{{ route('user.create') }}" class="btn btn-primary" id="add-user-btn"
+                                    title="Add user">
+                                    <i class="mdi mdi-plus"></i> Add user
                                 </a>
                             </div>
 
@@ -42,15 +42,14 @@
                     </div>
 
                     <div class="table">
-                        <table id="shift-table" class="table">
+                        <table id="user-table" class="table">
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>shift Name</th>
-                                    <th>Start Time</th>
-                                    <th>End Time</th>
-                                    <th>Location</th>
-                                    <th>Notes</th>
+                                    <th>user Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Gender</th>
                                     <th>Updated At</th>
                                     <th>Action</th>
                                 </tr>
@@ -72,13 +71,13 @@
 
     <script>
         $(document).ready(function() {
-            $('#shift-table_length').hide();
+            $('#user-table_length').hide();
             // Initialize DataTable with AJAX data
-            $('#shift-table').DataTable({
+            $('#user-table').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('shift') }}",
+                    url: "{{ route('user') }}",
                     type: 'GET',
                     dataSrc: function(json) {
                         return json.data;
@@ -88,19 +87,16 @@
                         data: 'id'
                     },
                     {
-                        data: 'shift_type'
+                        data: 'name'
                     },
                     {
-                        data: 'start_time'
+                        data: 'email'
                     },
                     {
-                        data: 'end_time'
+                        data: 'user_details.phone'
                     },
                     {
-                        data: 'location'
-                    },
-                    {
-                        data: 'notes'
+                        data: 'user_details.gender'
                     },
                     {
                         data: 'updated_at'
@@ -120,7 +116,7 @@
             });
 
             $(".dataTables_filter").hide();
-           
+
         });
     </script>
 @endsection

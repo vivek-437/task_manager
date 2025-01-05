@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\tbl_shifts;
+use App\Models\tbl_users;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -142,4 +143,5 @@ class ShiftController extends Controller
             return redirect()->back()->withInput();
         }
     }
+
 }

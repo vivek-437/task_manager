@@ -43,7 +43,7 @@
 
         <!-- Users Route -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link {{ request()->routeIs('user', 'user.create', 'user.store', 'user.edit', 'user.update','user.view') ? 'active' : '' }}" href="{{route('user')}}">
                 <i class="mdi mdi-account menu-icon"></i>
                 <span class="menu-title">Users</span>
             </a>
