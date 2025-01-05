@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ShiftController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +39,14 @@ Route::middleware(['web', 'auth'])->group(function () {
         Route::get('/role-edit/{id}','edit')->name('role.edit');
         Route::post('role-update/{id}','update')->name('role.update');
     });
+
+    Route::controller(ShiftController::class)->group(function(){
+        Route::get('/shifts','index')->name('shift');
+        Route::get('/shift-create','create')->name('shift.create');
+        Route::post('/shift-store','store')->name('shift.store');
+        Route::get('/shift-edit/{id}','edit')->name('shift.edit');
+        Route::post('shift-update/{id}','update')->name('shift.update');
+    });
+
+    // Route::controller()
 });

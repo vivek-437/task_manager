@@ -10,11 +10,12 @@
 
         <!-- Roles Route -->
         <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('role') ? 'active' : '' }}" href="{{ route('role') }}">
+            <a class="nav-link {{ request()->routeIs('role', 'role.create', 'role.store', 'role.edit', 'role.update') ? 'active' : '' }}" href="{{ route('role') }}">
                 <i class="mdi mdi-account-group menu-icon"></i>
                 <span class="menu-title">Roles</span>
             </a>
         </li>
+        
 
         <!-- Permissions Route -->
         <li class="nav-item">
@@ -66,7 +67,7 @@
 
         <!-- Shift Time Route -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link {{ request()->routeIs('shift', 'shift.create', 'shift.store', 'shift.edit', 'shift.update') ? 'active' : '' }}" href="{{route('shift')}}">
                 <i class="mdi mdi-clock menu-icon"></i> <!-- MDI icon for Shift Time -->
                 <span class="menu-title">Shift Time</span>
             </a>
